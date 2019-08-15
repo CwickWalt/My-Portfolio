@@ -1,0 +1,68 @@
+<div class="container-fluid d-flex flex-column min-vh-100 h-100">
+    <div class="col min-vh-100 h-100">
+        <div class="row justify-content-center m-5">
+            <h2 class="font-weight-bold">
+                Contact Me
+            </h2>
+        </div>
+        <div class="row justify-content-center align-items-center h-75 w-100">
+            <form class="w-50 h-100" (ngSubmit)="submitForm(contactForm)" #contactForm = "ngForm">
+                <!-- name -->
+                <div class="field m-1 w-100">
+                    <input 
+                        type="text" 
+                        name="name" 
+                        class="input w-100" 
+                        placeholder="Your Name"
+                        minlength="3" 
+                        required [(ngModel)]="name" 
+                        #nameInput="ngModel">
+                </div>
+                <div class="alert-danger" role="alert">
+                        <p *ngIf="nameInput.invalid && nameInput.dirty">
+                            Your name is required and must have a minimum of 3 characters.
+                        </p>
+                    </div>
+                <!-- email -->
+                <div class="field m-1 w-100">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        class="input w-100" 
+                        placeholder="Your Email" 
+                        required 
+                        email 
+                        [(ngModel)]="email" 
+                        #emailInput="ngModel">
+                </div>
+                <div class="alert-danger" role="alert">
+                    <p *ngIf="emailInput.invalid && emailInput.dirty">
+                        Please provide a valid Email.
+                    </p>
+                </div>
+                <!-- message -->
+                <div class="field m-1 w-100 h-25">
+                    <textarea 
+                        name="textarea" 
+                        class="textarea w-100 h-100" 
+                        placeholder="Your message goes here." 
+                        required 
+                        [(ngModel)]="message" 
+                        #messageInput="ngModel">
+                    </textarea>
+                </div>
+                <div class="alert-danger" role="alert">
+                    <p *ngIf="messageInput.invalid && messageInput.dirty">
+                        Don't forget to send a message!
+                    </p>
+                </div>
+                <!-- submit -->
+                <button 
+                    type="submit" 
+                    class="btn btn-outline-dark font-weight-bold float-right mt-1 mr-0">
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+}
+
+.icon--size {
+    font-size: 48px;
+}
